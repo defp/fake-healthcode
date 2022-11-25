@@ -1,1 +1,1 @@
-docker build . -t fake-healthcode:v3.14 --no-cache
+docker build . -t fake-healthcode:latest --no-cache
