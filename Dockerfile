@@ -1,4 +1,4 @@
-From mitmproxy/mitmproxy:latest
+FROM mitmproxy/mitmproxy:latest
 
 COPY .mitmproxy /home/mitmproxy/.mitmproxy
 
