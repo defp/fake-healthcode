@@ -20,6 +20,7 @@ def modify_hz_scan(flow: http.HTTPFlow):
 
     data = body['data']
     data['colorCode'] = 'green'
+    data['qrCode'] = ''
 
     data['specialColorInfo']['colorCss'] = '#2bac65'
     data['specialColorInfo']['level'] = 'green'
