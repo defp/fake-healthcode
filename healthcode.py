@@ -19,9 +19,13 @@ def modify_hz_scan(flow: http.HTTPFlow):
     content = flow.response.content
     body = json.loads(content)
 
-    body['data']['colorCode'] = 'green'
-    body['data']['time'] = '24'
-    body['specialColorInfo']['colorCss'] = '#2bac65'
+    data = body['data']
+    data['colorCode'] = 'green'
+    data['time'] = '24'
+
+    data['specialColorInfo']['colorCss'] = '#2bac65'
+    data['vaccineShowConfigDto'] = { "color": "#C38800", "text": "已完成新冠疫苗接种" }
+    
     
     flow.response.text = json.dumps(body)
 
