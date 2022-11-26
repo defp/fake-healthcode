@@ -24,6 +24,8 @@ def modify_hz_scan(flow: http.HTTPFlow):
     data['specialColorInfo']['colorCss'] = '#2bac65'
     data['specialColorInfo']['level'] = 'green'
     data['specialColorInfo']['orange'] = '1'
+    data['specialColorInfo']['hstimes'] = 0
+    
 
     data['travelInfo'] = '1'
     
