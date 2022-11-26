@@ -1,7 +1,5 @@
 import json
-
 from mitmproxy import http
-from urllib.parse import urlparse, parse_qs
 
 def modify_hz(flow: http.HTTPFlow):
     content = flow.response.content
