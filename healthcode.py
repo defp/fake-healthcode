@@ -21,6 +21,7 @@ def modify_hz_scan(flow: http.HTTPFlow):
 
     body['data']['colorCode'] = 'green'
     body['data']['time'] = '24'
+    body['specialColorInfo']['colorCss'] = '#2bac65'
     
     flow.response.text = json.dumps(body)
 
