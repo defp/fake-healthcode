@@ -15,8 +15,20 @@ def modify_hz(flow: http.HTTPFlow):
     body['result'] = json.dumps(result_json)
     flow.response.text = json.dumps(body)
 
+def modify_hz_scan(flow: http.HTTPFlow):
+    content = flow.response.content
+    body = json.loads(content)
+
+    body['data']['colorCode'] = 'green'
+    body['data']['time'] = '24'
+    
+    flow.response.text = json.dumps(body)
 
 def response(flow: http.HTTPFlow) -> None:
     if flow.request.pretty_url == "https://healthcode.dingtalk.com/unAuthLwp/queryHealthInfoByAuthCode":
         modify_hz(flow)
         
+    # https://szhzjkm.hangzhou.gov.cn:9090/api/v1/healthy/code/zfb/saveAuthInfo
+    if "zfb/saveAuthInfo" in flow.request.pretty_url:
+        modify_hz_scan(flow)
+
