@@ -11,6 +11,7 @@ def modify_hz(flow: http.HTTPFlow):
     result_json = json.loads(result)
     result_json['healthRecord']['colorCss'] = '#2bac65'
     result_json['healthRecord']['color'] = 'green'
+    result_json['descCn'] = ''
 
     body['result'] = json.dumps(result_json)
     flow.response.text = json.dumps(body)
