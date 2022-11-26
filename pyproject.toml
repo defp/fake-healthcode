@@ -1,0 +1,22 @@
+[project]
+name = ""
+version = ""
+description = ""
+authors = [
+    {name = "dåshuång li", email = "li.dashuang@icloud.com"},
+]
+dependencies = [
+    "mitmproxy>=9.0.1",
+]
+requires-python = ">=3.11"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-pep517>=1.0.0"]
+build-backend = "pdm.pep517.api"
+
+[tool.pdm]
+
+[tool.pyright]
+extraPaths = ["__pypackages__/3.11/lib/"]
+exclude = ["__pypackages__"]
