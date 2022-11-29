@@ -11,6 +11,13 @@ def modify_hz(flow: http.HTTPFlow):
     result_json['healthRecord']['qrColor'] = 'green'
     result_json['descCn'] = ''
 
+    ext_info = result_json['healthcode']['extInfo']
+    ext_info_json = json.loads(ext_info)
+    if 'outProvinceData' in ext_info_json:
+        del ext_info_json['outProvinceData']
+    ext_info = json.dumps(ext_info_json)
+    result_json['healthcode']['extInfo'] = extInfo
+
     body['result'] = json.dumps(result_json)
     flow.response.text = json.dumps(body)
 
@@ -37,3 +44,7 @@ def response(flow: http.HTTPFlow) -> None:
     if "zfb/saveAuthInfo" in flow.request.pretty_url:
         modify_hz_scan(flow)
 
+
+
+# TODO disable  reportInfoAndLocationToPolice
+# PSOT https://healthcode.dingtalk.com/unAuthLwp/reportInfoAndLocationToPolice
