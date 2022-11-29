@@ -1,4 +1,5 @@
 import json
+import pprint
 from mitmproxy import http
 
 def modify_hz(flow: http.HTTPFlow):
@@ -16,8 +17,9 @@ def modify_hz(flow: http.HTTPFlow):
     if 'outProvinceData' in ext_info_json:
         del ext_info_json['outProvinceData']
     ext_info = json.dumps(ext_info_json)
-    result_json['healthcode']['extInfo'] = extInfo
+    result_json['healthcode']['extInfo'] = ext_info
 
+    pprint.pprint(result_json)
     body['result'] = json.dumps(result_json)
     flow.response.text = json.dumps(body)
 
