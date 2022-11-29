@@ -34,6 +34,9 @@ def modify_hz_scan(flow: http.HTTPFlow):
     data['specialColorInfo']['colorCss'] = '#2bac65'
     data['specialColorInfo']['level'] = 'green'
 
+    if 'limitGatherConfig' in data:
+        del data['limitGatherConfig']
+
     data['travelInfo'] = '1'
     
     flow.response.text = json.dumps(body)
