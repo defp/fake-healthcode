@@ -12,12 +12,12 @@ def modify_hz(flow: http.HTTPFlow):
     result_json['healthRecord']['qrColor'] = 'green'
     result_json['descCn'] = ''
 
-    ext_info = result_json['healthcode']['extInfo']
+    ext_info = result_json['healthRecord']['extInfo']
     ext_info_json = json.loads(ext_info)
     if 'outProvinceData' in ext_info_json:
         del ext_info_json['outProvinceData']
     ext_info = json.dumps(ext_info_json)
-    result_json['healthcode']['extInfo'] = ext_info
+    result_json['healthRecord']['extInfo'] = ext_info
 
     pprint.pprint(result_json)
     body['result'] = json.dumps(result_json)
