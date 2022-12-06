@@ -6,8 +6,10 @@
 //ossutilmac64 cp -f hefei.js  oss://rules-set/hefei.js
 let obj = JSON.parse($response.body);
 
-obj.data.healthStatus = "0";
-obj.data.orgName = "NoCode";
+obj.data.healthStatus = "1";
+obj.data.tcInfo = null;
+obj.data.detailInfo = null;
+
 body = JSON.stringify(obj);
 
 $done({body});
